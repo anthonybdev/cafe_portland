@@ -1,0 +1,114 @@
+@import '../../index.scss';
+
+.mainContent {
+  padding-top: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainSection {
+  margin-top: 72px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoText {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.descText {
+  color: $primary;
+  margin-bottom: 25px;
+}
+
+.btnModal {
+  padding: 20px;
+}
+
+.mapSection {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line {
+  width: 180px;
+  border-bottom: 2px solid $primary;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  color: $primary;
+  font-weight: 700;
+  margin-bottom: 80px;
+}
+
+.infoSection {
+  display: flex;
+  justify-content: space-around;
+  width: 950px;
+  margin-bottom: 80px;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.addressString {
+  color: $primary;
+  width: 148px;
+  display: block;
+}
+
+.infoTitle {
+  color: $primary;
+  font-size: 20px;
+}
+
+.hoursWrappper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.hourItem {
+  color: $primary;
+}
+
+.mapImg {
+  max-width: 950px;
+  height: auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .mapImg {
+    width: 100vw;
+  }
+
+  .infoSection {
+    width: 95vw;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .infoSection {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  .infoWrapper {
+    align-items: center;
+  }
+  .addressString {
+    text-align: center;
+  }
+}
