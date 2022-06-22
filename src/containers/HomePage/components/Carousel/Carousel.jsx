@@ -10,7 +10,22 @@ const Carousel = () => {
   const items = [img1, img2, img3, img4];
 
   return (
-    <CarouselComp className="carouselWrapper" interval={3000} swipe={true}>
+    <CarouselComp
+      className="carouselWrapper"
+      interval={3000}
+      swipe={true}
+      activeIndicatorIconButtonProps={{
+        style: {
+          color: '#BC662E',
+          // 2
+        },
+      }}
+      indicatorIconButtonProps={{
+        style: {
+          padding: '6px',
+        },
+      }}
+    >
       {items.map((item, index) => (
         <img src={item} alt="carousel-img" key={index} />
       ))}

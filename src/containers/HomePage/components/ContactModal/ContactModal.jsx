@@ -127,17 +127,17 @@ const ContactModal = ({ status, handleClose }) => {
                     },
                   }}
                 >
-                  * Valid email address required
+                  &#x2022; Valid email address required
                 </FormHelperText>
                 <TextField
                   id="message"
                   fullWidth
                   label="How can we help you?"
-                  variant="standard"
+                  variant="outlined"
                   value={contactData.message}
                   onChange={(e) => handleDataUpdate(e, 'message')}
                   multiline={true}
-                  rows={2}
+                  rows={3}
                 />
               </fieldset>
               <Grid container alignItems="flex-end" flexDirection="column">
@@ -146,7 +146,23 @@ const ContactModal = ({ status, handleClose }) => {
                   variant="contained"
                   loading={formLoading}
                   disabled={formLoading}
-                  sx={{ color: '#fff', my: 4, width: '92.55px' }}
+                  sx={{
+                    color: '#fff',
+                    my: 3,
+                    fontSize: {
+                      md: '24px',
+                      xs: '18px',
+                    },
+                    fontWeight: '400',
+                    py: {
+                      md: '12px',
+                      xs: '8px',
+                    },
+                    px: {
+                      md: '28px',
+                      xs: '18px',
+                    },
+                  }}
                 >
                   Send
                 </LoadingButton>
@@ -154,7 +170,7 @@ const ContactModal = ({ status, handleClose }) => {
                   <FormHelperText
                     id="email"
                     sx={{
-                      mt: {
+                      my: {
                         xs: -3,
                         sm: -3,
                       },

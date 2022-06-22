@@ -3,8 +3,8 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#f78a36',
-      color: '#f78a36',
+      main: '#BC662E',
+      color: '#BC662E',
       background: '#ffffff',
       // white: '#f78a36',
     },
@@ -14,8 +14,8 @@ const theme = createTheme({
   },
   typography: {
     allVariants: {
-      fontFamily: 'Arvo',
-      color: '#f78a36',
+      fontFamily: 'Roboto Slab',
+      color: '#BC662E',
     },
   },
 });

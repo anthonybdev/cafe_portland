@@ -64,8 +64,9 @@ const Navbar = ({ handleModal, contactUsSectionRef }) => {
               sx={{
                 mr: {
                   xs: 0,
-                  sm: 2,
+                  sm: 1,
                 },
+                outline: 'none',
               }}
             >
               <Hamburger
@@ -73,7 +74,7 @@ const Navbar = ({ handleModal, contactUsSectionRef }) => {
                 toggle={() => setIsDrawerOpened((state) => !state)}
                 duration={0.4}
                 direction="right"
-                size={20}
+                size={22}
                 color={theme.palette.primary.color}
                 hideOutline={false}
                 distance="sm"
@@ -85,10 +86,12 @@ const Navbar = ({ handleModal, contactUsSectionRef }) => {
               sx={{
                 flexGrow: 1,
                 fontSize: {
-                  xs: '16px',
-                  md: '20px',
+                  xs: '18px',
+                  md: '24px',
                 },
-                fontWeight: '700',
+                lineHeight: '32px',
+                mt: '-3px',
+                fontWeight: '600',
               }}
             >
               Courier Coffee Roasters
@@ -100,10 +103,16 @@ const Navbar = ({ handleModal, contactUsSectionRef }) => {
                   sx={{
                     mr: !index ? 2 : 0,
                     textTransform: 'unset',
+                    fontSize: {
+                      md: '21px',
+                      xs: '16px',
+                    },
+                    lineHeight: '28px',
+                    fontWeight: '400',
                   }}
                   onClick={item.click}
                 >
-                  <item.icon sx={{ mr: 1 }} />
+                  <item.icon sx={{ mr: 1, pt: '3.5px' }} />
                   {item.text}
                 </Button>
               ))}
@@ -129,7 +138,16 @@ const Navbar = ({ handleModal, contactUsSectionRef }) => {
               <ListItem key={item.text} disablePadding>
                 <ListItemButton onClick={item.click}>
                   <item.icon sx={{ mx: 2, color: theme.palette.primary.color }} />
-                  <ListItemText primary={item.text} sx={{ flexGrow: '0' }} />
+                  <ListItemText
+                    primary={item.text}
+                    sx={{
+                      flexGrow: '0',
+                      fontSize: {
+                        md: '21px',
+                        xs: '16px',
+                      },
+                    }}
+                  />
                 </ListItemButton>
               </ListItem>
             ))}

@@ -28,14 +28,28 @@ const HomePage = () => {
             variant="contained"
             onClick={handleModalOpen}
             className="btnModal"
-            sx={{ color: 'white', py: 2, px: 4 }}
+            sx={{
+              color: 'white',
+              py: {
+                md: '20px',
+                sm: '14px',
+              },
+              px: {
+                md: '32px',
+                sm: '16px',
+              },
+              fontSize: {
+                md: '24px',
+                sm: '18px',
+              },
+              fontWeight: '400',
+            }}
           >
             Contact Us
           </Button>
           <Carousel />
         </section>
         <section className="mapSection" ref={contactUsSectionRef}>
-          <span className="line"></span>
           <span className="sectionTitle">CONTACT US</span>
           <a href={address} target="_blank" rel="noopener noreferrer">
             <img src={MapImg} alt="map" className="mapImg" />
@@ -45,7 +59,25 @@ const HomePage = () => {
           <div className="infoWrapper">
             <span className="infoTitle">Address</span>
             <a href={address} target="_blank" rel="noopener noreferrer">
-              <Button variant="contained" sx={{ color: '#fff', py: 2, px: 4 }}>
+              <Button
+                variant="contained"
+                sx={{
+                  color: '#fff',
+                  py: {
+                    md: '20px',
+                    sm: '14px',
+                  },
+                  px: {
+                    md: '32px',
+                    sm: '16px',
+                  },
+                  fontSize: {
+                    md: '24px',
+                    sm: '18px',
+                  },
+                  fontWeight: '400',
+                }}
+              >
                 GET DIRECTIONS
               </Button>
             </a>
@@ -60,13 +92,13 @@ const HomePage = () => {
           <div className="infoWrapper">
             <span className="infoTitle">Business Hours</span>
             <div className="hoursWrappper">
-              <span className="hourItem">Mon: 9:00 – 14:00</span>
+              <span className="hourItem">Mon: 9:00 AM – 2:00 PM</span>
               <span className="hourItem">Tue: Closed</span>
               <span className="hourItem">Wed: Closed</span>
               <span className="hourItem">Thu: Closed</span>
-              <span className="hourItem">Fri: 9:00 – 14:00</span>
-              <span className="hourItem">Sat: 9:00 – 14:00</span>
-              <span className="hourItem">Sun: 9:00 – 14:00</span>
+              <span className="hourItem">Fri: 9:00 AM – 2:00 PM</span>
+              <span className="hourItem">Sat: 9:00 AM – 2:00 PM</span>
+              <span className="hourItem">Sun: 9:00 AM – 2:00 PM</span>
             </div>
           </div>
         </section>
