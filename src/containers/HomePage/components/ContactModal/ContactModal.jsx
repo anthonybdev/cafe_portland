@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
+import LoadingButton from '@mui/lab/LoadingButton';
 import './ContactModal.scss';
 import CloseIcon from '@mui/icons-material/Close';
 import { IconButton } from '@mui/material';
 import { Grid } from '@mui/material';
 import { FormHelperText } from '@mui/material';
 import TextField from '@mui/material/TextField';
+import emailjs from '@emailjs/browser';
+import { EMAIL_JS } from './constants';
 
 const ContactModal = ({ status, handleClose }) => {
   const [contactData, setContactData] = useState({
@@ -18,11 +20,46 @@ const ContactModal = ({ status, handleClose }) => {
     message: '',
   });
 
+  const [formLoading, setFormLoading] = useState(false);
+
+  const [emailError, setEmailError] = useState(null);
+
   const handleDataUpdate = (e, key) => {
     setContactData({
       ...contactData,
       [key]: e.target.value,
     });
+  };
+
+  const sendMail = async (e) => {
+    e.preventDefault();
+    setEmailError(null);
+    if (!contactData.message) return;
+    const templateObj = { ...contactData };
+    if (!contactData.name) templateObj.name = '-';
+    if (!contactData.phoneNumber) templateObj.phoneNumber = '-';
+    console.log(templateObj);
+    setFormLoading(true);
+    try {
+      await emailjs.send(
+        EMAIL_JS.SERVICE_ID,
+        EMAIL_JS.TEMPLATE_ID,
+        templateObj,
+        EMAIL_JS.PUBLIC_KEY,
+      );
+      setEmailError(null);
+      setFormLoading(false);
+      handleClose();
+      setContactData({
+        name: '',
+        phoneNumber: '',
+        email: '',
+        message: '',
+      });
+    } catch (e) {
+      setEmailError(e);
+      setFormLoading(false);
+    }
   };
   return (
     <Modal
@@ -53,7 +90,7 @@ const ContactModal = ({ status, handleClose }) => {
             </IconButton>
           </div>
           <div className="formWrapper">
-            <form className="form">
+            <form className="form" onSubmit={sendMail}>
               <fieldset className="fieldset">
                 <TextField
                   id="name"
@@ -77,6 +114,7 @@ const ContactModal = ({ status, handleClose }) => {
                   label="Email"
                   required
                   variant="standard"
+                  type="email"
                   value={contactData.email}
                   onChange={(e) => handleDataUpdate(e, 'email')}
                 />
@@ -102,14 +140,29 @@ const ContactModal = ({ status, handleClose }) => {
                   rows={2}
                 />
               </fieldset>
-              <Grid container justifyContent="flex-end">
-                <Button
+              <Grid container alignItems="flex-end" flexDirection="column">
+                <LoadingButton
                   type="submit"
                   variant="contained"
+                  loading={formLoading}
+                  disabled={formLoading}
                   sx={{ color: '#fff', my: 4, width: '92.55px' }}
                 >
-                  Submit
-                </Button>
+                  Send
+                </LoadingButton>
+                {emailError && (
+                  <FormHelperText
+                    id="email"
+                    sx={{
+                      mt: {
+                        xs: -3,
+                        sm: -3,
+                      },
+                    }}
+                  >
+                    Email was not send, try again!
+                  </FormHelperText>
+                )}
               </Grid>
             </form>
             <span className="formDescr">

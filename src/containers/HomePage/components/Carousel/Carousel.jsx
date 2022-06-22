@@ -1,6 +1,5 @@
 import React from 'react';
 import CarouselComp from 'react-material-ui-carousel';
-import { Paper, Button } from '@mui/material';
 import './Carousel.scss';
 import img1 from '../../../../images/Carousel/1.jpg';
 import img2 from '../../../../images/Carousel/2.jpg';

@@ -31,7 +31,8 @@
 }
 
 .mapSection {
-  margin-top: 80px;
+  padding-top: 120px;
+  margin-top: -40px;
   margin-bottom: 80px;
   display: flex;
   flex-direction: column;
@@ -89,6 +90,16 @@
   height: auto;
 }
 
+.emailAddress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.emailAddressString {
+  color: $primary;
+}
+
 @media screen and (max-width: 1000px) {
   .mapImg {
     width: 100vw;
@@ -110,5 +121,9 @@
   }
   .addressString {
     text-align: center;
+  }
+
+  .emailAddress {
+    flex-direction: column;
   }
 }

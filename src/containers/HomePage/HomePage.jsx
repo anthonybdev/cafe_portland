@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './HomePage.scss';
 import Navbar from './components/Navbar';
 import Button from '@mui/material/Button';
 import Carousel from './components/Carousel';
 import ContactModal from './components/ContactModal';
 import MapImg from '../../images/Map/Map.png';
+import EmailIcon from '@mui/icons-material/Email';
 
 const HomePage = () => {
   const [modalStatus, setModalStatus] = useState(false);
+  const contactUsSectionRef = useRef();
 
   const address = 'https://g.page/couriercoffeeroasters?share';
 
@@ -17,7 +19,7 @@ const HomePage = () => {
 
   return (
     <div className="mainContainer">
-      <Navbar handleModal={handleModalOpen} />
+      <Navbar handleModal={handleModalOpen} contactUsSectionRef={contactUsSectionRef} />
       <div className="mainContent">
         <section className="mainSection">
           <h2 className="logoText">Courier Coffee Roasters</h2>
@@ -32,7 +34,7 @@ const HomePage = () => {
           </Button>
           <Carousel />
         </section>
-        <section className="mapSection">
+        <section className="mapSection" ref={contactUsSectionRef}>
           <span className="line"></span>
           <span className="sectionTitle">CONTACT US</span>
           <a href={address} target="_blank" rel="noopener noreferrer">
@@ -50,6 +52,10 @@ const HomePage = () => {
             <a href={address} rel="noopener noreferrer" target="_blank">
               <span className="addressString">923 SW Oak St Portland, OR 97205 USA</span>
             </a>
+            <div className="emailAddress">
+              <EmailIcon />
+              <span className="emailAddressString">all.couriercoffeeportland@gmail.com</span>
+            </div>
           </div>
           <div className="infoWrapper">
             <span className="infoTitle">Business Hours</span>

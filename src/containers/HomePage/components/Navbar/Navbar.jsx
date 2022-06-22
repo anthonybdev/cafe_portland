@@ -16,16 +16,22 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { useTheme } from '@mui/styles';
 
-const Navbar = ({ handleModal }) => {
+const Navbar = ({ handleModal, contactUsSectionRef }) => {
   const [isDrawerOpened, setIsDrawerOpened] = useState(false);
   const theme = useTheme();
 
+  const handleScrollToContactUs = () => {
+    setTimeout(() => {
+      contactUsSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 0);
+  };
+
   const navItems = [
-    { text: 'Contact Us', icon: EmailIcon, href: null },
+    { text: 'Contact Us', icon: EmailIcon, click: handleModal },
     {
       text: 'Get Directions',
       icon: DirectionsIcon,
-      href: 'https://g.page/couriercoffeeroasters?share',
+      click: handleScrollToContactUs,
     },
   ];
 
@@ -89,18 +95,17 @@ const Navbar = ({ handleModal }) => {
             </Typography>
             <Box className="navLinks">
               {navItems.map((item, index) => (
-                <a key={item.text} rel="noopener noreferrer" target="_blank" href={item.href}>
-                  <Button
-                    sx={{
-                      mr: !index ? 2 : 0,
-                      textTransform: 'unset',
-                    }}
-                    onClick={!index ? handleModal : () => {}}
-                  >
-                    <item.icon sx={{ mr: 1 }} />
-                    {item.text}
-                  </Button>
-                </a>
+                <Button
+                  key={item.text}
+                  sx={{
+                    mr: !index ? 2 : 0,
+                    textTransform: 'unset',
+                  }}
+                  onClick={item.click}
+                >
+                  <item.icon sx={{ mr: 1 }} />
+                  {item.text}
+                </Button>
               ))}
             </Box>
           </Toolbar>
@@ -120,21 +125,12 @@ const Navbar = ({ handleModal }) => {
           onKeyDown={(e) => toggleDrawer(e, false)}
         >
           <List>
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <ListItem key={item.text} disablePadding>
-                <a
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  href={item.href}
-                  sx={{
-                    justifyContent: 'center',
-                  }}
-                >
-                  <ListItemButton onClick={!index ? handleModal : () => {}}>
-                    <item.icon sx={{ mx: 2, color: theme.palette.primary.color }} />
-                    <ListItemText primary={item.text} sx={{ flexGrow: '0' }} />
-                  </ListItemButton>
-                </a>
+                <ListItemButton onClick={item.click}>
+                  <item.icon sx={{ mx: 2, color: theme.palette.primary.color }} />
+                  <ListItemText primary={item.text} sx={{ flexGrow: '0' }} />
+                </ListItemButton>
               </ListItem>
             ))}
           </List>
