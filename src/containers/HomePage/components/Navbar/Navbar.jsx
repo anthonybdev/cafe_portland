@@ -110,8 +110,8 @@ const Navbar = ({ handleModal }) => {
         <Box
           sx={{
             width: {
-              xs: 200,
-              md: 300,
+              xs: 220,
+              md: 240,
             },
             pt: '100px',
           }}
@@ -122,14 +122,16 @@ const Navbar = ({ handleModal }) => {
           <List>
             {navItems.map((item, index) => (
               <ListItem key={item.text} disablePadding>
-                <a rel="noopener noreferrer" target="_blank" href={item.href}>
-                  <ListItemButton
-                    sx={{
-                      justifyContent: 'center',
-                    }}
-                    onClick={!index ? handleModal : () => {}}
-                  >
-                    <item.icon sx={{ mr: 2, color: theme.palette.primary.color }} />
+                <a
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={item.href}
+                  sx={{
+                    justifyContent: 'center',
+                  }}
+                >
+                  <ListItemButton onClick={!index ? handleModal : () => {}}>
+                    <item.icon sx={{ mx: 2, color: theme.palette.primary.color }} />
                     <ListItemText primary={item.text} sx={{ flexGrow: '0' }} />
                   </ListItemButton>
                 </a>
