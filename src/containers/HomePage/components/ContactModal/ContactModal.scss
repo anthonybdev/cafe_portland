@@ -1,15 +1,17 @@
+@import '../../../../index.scss';
+
 .modalContent {
   display: flex;
+  outline: none;
   flex-direction: column;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 320px;
-  height: 500px;
+  width: 530px;
+  // height: 500px;
   background-color: white;
-  color: black;
-  padding: 15px;
+  padding: 34px;
 }
 
 .topWrapper {
@@ -19,32 +21,80 @@
 }
 
 .modalTitle {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 21px;
+  font-weight: 600;
 }
 
 .fieldset {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 8px;
   margin: 0;
   padding: 0;
   border: none;
-  margin-top: 30px;
+  margin-top: 8px;
+}
+
+.MuiInput-input {
+  font-size: 18px !important;
+  color: $primary;
+}
+
+.MuiInputLabel-root {
+  color: $primary !important;
+}
+
+.MuiInputLabel-root.Mui-focused {
+  color: $color !important;
+}
+
+.MuiInputLabel-root.MuiFormLabel-filled {
+  color: $color !important;
+}
+
+.MuiInputLabel-outlined {
+  top: -45px !important;
+  left: -13px !important;
+}
+
+.MuiInputLabel-outlined.Mui-focused {
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.MuiFormHelperText-root {
+  font-size: 16px !important;
+  padding-bottom: 36px;
+  padding-top: 10px;
 }
 
 .formDescr {
-  font-size: 12px;
+  font-size: 21px;
+  color: $secondary;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 750px) {
+  .modalContent {
+    width: 380px;
+  }
+  .formDescr {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 460px) {
   .modalContent {
     width: 280px;
-    height: 480px;
   }
 
   .fieldset {
     gap: 15px;
     margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .modalContent {
+    width: 240px;
   }
 }

@@ -8,7 +8,7 @@
 }
 
 .mainSection {
-  margin-top: 72px;
+  margin-top: 140px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -16,14 +16,15 @@
 }
 
 .logoText {
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 12px;
+  font-size: 64px;
+  font-weight: 600;
+  margin-bottom: 34px;
 }
 
 .descText {
-  color: $primary;
-  margin-bottom: 25px;
+  margin-bottom: 34px;
+  font-weight: 400;
+  font-size: 34px;
 }
 
 .btnModal {
@@ -31,23 +32,18 @@
 }
 
 .mapSection {
-  margin-top: 80px;
-  margin-bottom: 80px;
+  padding-top: 120px;
+  margin-top: -40px;
+  margin-bottom: 110px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.line {
-  width: 180px;
-  border-bottom: 2px solid $primary;
-  margin-bottom: 20px;
-}
-
 .sectionTitle {
-  color: $primary;
-  font-weight: 700;
-  margin-bottom: 80px;
+  font-weight: 600;
+  margin-bottom: 56px;
+  font-size: 34px;
 }
 
 .infoSection {
@@ -60,18 +56,21 @@
 .infoWrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 32px;
 }
 
 .addressString {
-  color: $primary;
-  width: 148px;
+  color: $secondary;
+  width: 220px;
+  font-size: 24px;
   display: block;
 }
 
 .infoTitle {
   color: $primary;
-  font-size: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  // margin-bottom: 15px;
 }
 
 .hoursWrappper {
@@ -81,12 +80,24 @@
 }
 
 .hourItem {
-  color: $primary;
+  color: $secondary;
+  font-size: 24px;
 }
 
 .mapImg {
   max-width: 950px;
   height: auto;
+}
+
+.emailAddress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.emailAddressString {
+  color: $secondary;
+  font-size: 24px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -97,9 +108,25 @@
   .infoSection {
     width: 95vw;
   }
+  .hourItem {
+    font-size: 16px;
+  }
+  .addressString {
+    font-size: 16px;
+    width: 168px;
+  }
+  .emailAddressString {
+    font-size: 16px;
+  }
 }
 
 @media screen and (max-width: 650px) {
+  .mapSection {
+    margin-bottom: 50px;
+  }
+  .sectionTitle {
+    font-size: 24px;
+  }
   .infoSection {
     flex-direction: column;
     align-items: center;
@@ -107,8 +134,32 @@
   }
   .infoWrapper {
     align-items: center;
+    gap: 15px;
   }
   .addressString {
     text-align: center;
+  }
+
+  .emailAddress {
+    flex-direction: column;
+  }
+
+  .infoTitle {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .logoText {
+    font-size: 34px;
+  }
+  .descText {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mainSection {
+    margin-top: 70px;
   }
 }

@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
 
 // palette
 
-$primary: #000000;
-$color: #f78a36;
+$primary: #00121a;
+$color: #bc662e;
+$secondary: #333333;
 
 body {
   margin: 0;
@@ -21,10 +22,14 @@ code {
 
 body {
   margin: 0;
-  font-family: 'Arvo', serif;
-  color: $color;
+  font-family: 'Roboto Slab', serif;
+  color: $primary;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+button:focus {
+  outline: none !important;
 }
 
 ul {
@@ -64,9 +69,3 @@ input {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-
-// @font-face {
-//   font-family: Kate;
-//   src: url('./fonts/kate/Kate-Black.otf') format('opentype');
-//   font-weight: 900;
-// }
