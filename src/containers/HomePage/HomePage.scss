@@ -48,7 +48,7 @@
 
 .infoSection {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 950px;
   margin-bottom: 80px;
 }
@@ -107,6 +107,7 @@
 
   .infoSection {
     width: 95vw;
+    justify-content: space-around;
   }
   .hourItem {
     font-size: 16px;
