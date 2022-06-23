@@ -86,7 +86,9 @@ const HomePage = () => {
             </a>
             <div className="emailAddress">
               <EmailIcon />
-              <span className="emailAddressString">all.couriercoffeeportland@gmail.com</span>
+              <a href="mailto: all.couriercoffeeportland@gmail.com" className="emailAddressString">
+                all.couriercoffeeportland@gmail.com
+              </a>
             </div>
           </div>
           <div className="infoWrapper">
