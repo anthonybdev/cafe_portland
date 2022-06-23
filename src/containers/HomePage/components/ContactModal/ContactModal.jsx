@@ -34,7 +34,6 @@ const ContactModal = ({ status, handleClose }) => {
   const sendMail = async (e) => {
     e.preventDefault();
     setEmailError(null);
-    if (!contactData.message) return;
     const templateObj = { ...contactData };
     if (!contactData.name) templateObj.name = '-';
     if (!contactData.phoneNumber) templateObj.phoneNumber = '-';
@@ -134,6 +133,7 @@ const ContactModal = ({ status, handleClose }) => {
                   fullWidth
                   label="How can we help you?"
                   variant="outlined"
+                  required
                   value={contactData.message}
                   onChange={(e) => handleDataUpdate(e, 'message')}
                   multiline={true}

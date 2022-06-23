@@ -28,6 +28,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button:focus {
+  outline: none !important;
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -65,9 +69,3 @@ input {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-
-// @font-face {
-//   font-family: Kate;
-//   src: url('./fonts/kate/Kate-Black.otf') format('opentype');
-//   font-weight: 900;
-// }

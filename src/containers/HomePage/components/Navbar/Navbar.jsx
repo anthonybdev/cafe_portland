@@ -66,7 +66,6 @@ const Navbar = ({ handleModal, contactUsSectionRef }) => {
                   xs: 0,
                   sm: 1,
                 },
-                outline: 'none',
               }}
             >
               <Hamburger
